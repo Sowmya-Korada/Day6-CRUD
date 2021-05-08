@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Database</title>
+</head>
+<body>
+    <div class="container">
+        <h1><%= title %></h1>
+        <a href="/add" class="btn btn-sm btn-primary">Add Employee</a><br/><br>
+        <table class="table table-info table-stripped">
+             <thead>
+                 <tr>
+                     <th>EmpID</th>
+                     <th>Name</th>
+                     <th>EmpCode</th>
+                     <th>Salary</th>
+                     <th>Action</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 <% employee.forEach(function(emp){ %>
+                    <tr>
+                        <td><%= emp.EmpID %></td>
+                        <td><%= emp.Name %></td>
+                        <td><%= emp.EmpCode %></td>
+                        <td><%= emp.Salary %></td>
+                        <td>
+                            <a href="edit/<%= emp.EmpID %>" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="delete/<%= emp.EmpID %>" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                <% }); %>
+             </tbody>
+        </table>
+    </div>
+     
+</body>
+</html>
